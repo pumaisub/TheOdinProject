@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Rock Paper Scissors game</title>
+</head>
+<body>
+
+  <script>
+
+function computerplay(){
+    var myArray = [
+    "rock",
+    "paper",
+    "scissors"
+    ];
+    var randomItem = myArray[Math.floor(Math.random()*myArray.length)];
+    console.log("The computer selected " + randomItem + ".");
+    return randomItem;
+    var computerSelection = randomItem;
+}
+//document.body.innerHTML = randomItem;
+
+function playerplay(){
+    const playerInput = window.prompt("Enter either rock,paper, or scissors. ");
+    const playerSelection= playerInput.toLowerCase();
+    console.log("You selected " + playerSelection + ".");
+    return playerSelection;
+}
+
+function playRound(playerSelection, computerSelection){
+var result = 0;
+if ((playerSelection != "rock") && (playerSelection != "paper") && (playerSelection != "scissors")){
+    result = 0;
+    return result;
+    console.log("No contest! You must play either rock, paper, or scissors. Check your spelling and try again.");
+}else if (playerSelection == "rock") {
+    if (computerSelection == "rock"){
+        result = 0;
+        return result;
+        console.log("You tie! Rock neither beats or loses to rock.")
+    } else if (computerSelection == "paper"){
+        result = -1;
+        return result;
+        console.log("You lose! Rock loses to paper.")
+    } else if (computerSelection == "scissors"){
+        result = 1;
+        return result;
+        console.log("You win! Rock beats scissors!")
+    }
+}else if (playerSelection == "paper") {
+    if (computerSelection == "rock"){
+        result = 1;
+        return result;
+        console.log("You win! Paper beats rock.")
+    } else if (computerSelection == "paper"){
+        result = 0;
+        return result;
+        console.log("You tie! Paper neither beats or loses to paper.")
+    } else if (computerSelection == "scissors"){
+        result = -1;
+        return result;
+        console.log("You lose! Paper gets cut by scissors.")
+    }
+}else if (playerSelection == "scissors"){
+    if (computerSelection == "rock"){
+        result = -1;
+        return result;
+        console.log("You lose! Scissors gets crushed by rock.")
+    } else if (computerSelection == "paper"){
+        result = 1;
+        return result;
+        console.log("You win! Scissors cuts paper.")
+    } else if (computerSelection == "scissors"){
+        result = 0;
+        return result;
+        console.log("You tie! Scissors neither wins or loses to scissors.")
+    }
+}else{
+    result = 0;
+    return result;
+    console.log("Something went wrong!")
+}
+}
+
+
+//first check to see if the player selected either rock paper or scissors, if something other than those, then you tie, with message saying you need to play either rock paper or scissors
+//if player played rock, and computer played rock, you tie 
+//else if player played rock and computer played paper, you lose 
+//else if player played rock and computer played scissors, you win
+
+//else if player played paper and pc played rock, you win
+//else if player played paper and pc played paper, you tie
+//else if player played paper and pc played scissors, you lose 
+
+//else if player played scissors and pc played rock, you lose 
+//else if player played scissors and pc played paper, you win 
+//else if player played scissors and pc played scissors, you tie 
+
+//const playerInput = window.prompt("Enter either rock,paper, or scissors. ");
+//const playerSelection= playerInput.toLowerCase();
+//console.log("You selected " + playerSelection + ".");
+var result = 0;
+//var playerSelection = playerplay();
+//var computerSelection = computerplay();
+playRound(playerSelection,computerSelection);
+
+function game(){
+    //when starting a new game, reset the scores to zero for the player and the computer
+    let playerWinCount = 0;
+    let computerWinCount = 0;
+// iterate for 5 rounds
+    for (i=0;i<100; i++){
+        playRound(playerSelection,computerSelection);
+        if (result == 0){
+            continue;
+        }
+        else if (result == 1){
+            playerWinCount++;
+        }
+        else if (result == -1){
+            computerWinCount++;
+        }
+        else{
+            console.log("Something went wrong in the game for-loop")
+            break;
+        }
+    }
+    var computerSelection = computerplay();
+    const playerInput = window.prompt("Enter either rock,paper, or scissors.");
+
+}
+game();
+// playing a 5 round game , so winner is first to 3 
+// start a win count for player and opponent 
+// for loop until either player or opponent get 3 wins 
+// FOR EACH ROUND: refresh the computer selection before playing 
+// ask for input from the player 
+//call the function playRound 
+// If you win, add a point to player win count . 
+// if you lose, add a point to computer win count 
+// if you tie, no win count for either 
+//loop again for a new round 
+  </script>
+</body>
+</html>
