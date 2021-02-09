@@ -1,0 +1,87 @@
+<!-- your html file: -->
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DOM practice exercise</title>
+</head>
+
+<body>
+  <h1>
+    THE TITLE OF YOUR WEBPAGE
+  </h1>
+  <div id="container"></div>
+</body>
+
+
+<button id="btn">Click Me</button>
+<div id="container">
+  <button id="1">Click Me</button>
+  <button id="2">Click Me</button>
+  <button id="3">Click Me</button>
+</div>
+<script>
+// your javascript file
+const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent = 'This is the glorious text-content!';
+container.appendChild(content);
+//a <p> with red text that says “Hey I’m red!”
+const redText = document.createElement('p');
+redText.textContent = 'Hey I\'m red!';
+redText.style.color = 'red';
+container.appendChild(redText);
+// an <h3> with blue text that says “I’m a blue h3!”
+const blueH3 = document.createElement('h3');
+blueH3.textContent = 'I\'m a blue h3!';
+blueH3.style.color = 'blue';
+container.appendChild(blueH3);
+// a <div> with a black border and pink background color
+const blackPink = document.createElement('div');
+blackPink.style.backgroundColor = 'pink';
+blackPink.style.cssText = 'border-style: solid; border-color:black';
+
+//   with the following elements inside of it:
+// another <h1> that says “I’m in a div”
+// a <p> that says “ME TOO!”
+const h1insideDiv = document.createElement('h1');
+h1insideDiv.textContent = 'I\'m in a div';
+h1insideDiv.style.color = 'purple';
+blackPink.appendChild(h1insideDiv);
+const pinsideDiv = document.createElement('p');
+pinsideDiv.textContent = 'Me too!';
+pinsideDiv.style.color = 'green';
+blackPink.appendChild(pinsideDiv);
+container.appendChild(blackPink);
+
+
+
+// Hint for this one: after creating the div with
+// createElement, append the <h1> and <p> to it before 
+//  adding it to the container.
+
+const btn = document.querySelector('#btn');
+btn.onclick = () => alert("Hello World");
+
+btn.addEventListener('click', function (e) {
+  e.target.style.background = 'blue';
+});
+
+
+
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
+
+// we use the .forEach method to iterate through each button
+buttons.forEach((button) => {
+
+  // and for each one we add a 'click' listener
+  button.addEventListener('click', () => {
+    alert(button.id);
+  });
+});
+</script>
+
+</html>
