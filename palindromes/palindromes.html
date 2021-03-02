@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Array Cardio 💪</title>
+</head>
+<body>
+  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <script>
+      
+const palindromes = function(stringCheck) {
+    if (typeof stringCheck == "string"){
+        var regex = /[!"#$%&'()*+,-./:;<=>?@[\]^_`{|}~]/g;
+        var stringNoPunctuation = stringCheck.replace(regex, '');
+        var stringNoSpaceNoCapital = stringNoPunctuation.split(" ").join("").toLowerCase();
+        var reverse = stringNoSpaceNoCapital.split("").reverse().join("");
+        //console.log(stringNoSpaceNoCapital);
+        //console.log(reverse);
+        if (stringNoSpaceNoCapital === reverse){
+            console.log('true// ' + `${stringCheck} is a palindrome`);
+        } else{
+            console.log('false// ' + `${stringCheck} is not a palindrome`);
+        }
+    } else {
+        console.log("Error, you have not provided the palindromes function a string.")
+    }
+}
+//tests
+
+palindromes("!!!##@RACE carr!");
+palindromes("A car, a man, a maraca.")
+palindromes('Animal loots foliated detail of stool lamina.')
+palindromes('ZZZZ car, a man, a maraca.')
+
+//take in a string and check to see if the reverse is equal to the original 
+//but remove punctuation, exclamation points and spaces ,, also account for capital letters 
+
+
+
+  </script>
+</body>
+</html>
